@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>레이아웃에 영향을 미치는 속성 - float</title>
+  
+  <style>
+    /*
+    .left {  
+      width: 300px;
+      height: 300px;
+      background-color: yellow;
+      float:left;
+    }
+    
+    .right {
+      width: 300px;
+      height: 400px;
+      background-color: blue;
+      float:right;
+    }
+    */
+    
+    
+    header {
+      width: 100%;
+      height: 100px;
+      background-color: yellow;
+    }
+    
+    #left {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      float:left;
+    }
+    
+    main {
+      width: 300px;
+      height: 200px;
+      background-color: green;
+      float:left;
+    }
+    
+    #right {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      float:right;
+    }
+    
+    footer {
+      width: 100%;
+      height: 100px;
+      background-color: black;
+    }
+    
+    
+  </style>
+  
+</head>
+<body>
+
+
+
+  <div class="left"></div> <!-- 공간을 만들 때 사용되는 태그들을 기본적으로 block요소의 성격을 가지고 있다. -->
+  <div class="right"></div>
+  <!-- float의 기준은 부모의 크기이다. 부모를 기준으로 왼쪽/오른쪽 정렬을 하는 것. -->
+  
+
+  <!-- 전통적인 웹사이트 레이아웃 구조 만들기 -->
+  
+  <header></header>
+  
+  <article id="left"></article>
+  <main></main>
+  <article id="right"></article>
+  
+  <footer></footer>
+  
+  
+
+</body>
+</html>
