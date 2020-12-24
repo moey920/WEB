@@ -1,0 +1,86 @@
+1. Transform
+    (1) rotate, scale (회전, 크기조절, 위치변경) / skew, translate
+    (2) transform:rotate(45deg); 는 평면적인 회전이다, 음수도 입력 가능하다, ~deg(각도)로 작성한다.
+    (3) Transform:scale(2,3); : 2는 width, 3은 height / 축소는 0.5와 같이 소수를 사용한다.
+    (4) transform:skew(10deg,20deg); 는 입체적으로 각도 변경 / 순서대로 x축, y축이다. 
+        -> n차원 각도 변경도 가능한가? : html5에서 원근감을 느끼긴 어렵다.
+    (5) transform:translate(100px,200px); 는 입체적인 위치(좌표) 변경 / 순서대로 x축, y축
+    (6) prefix(접두사) : 
+        1) -webkit-transform:translate(100px,200px); : 크롬/사파리
+        2) -moz-transform:translate(100px,200px); : 파이어폭스
+        3) -ms-transform:translate(100px,200px); : 익스플로러 9.0이상
+        4) -o-transform:translate(100px,200px); : 오페라
+    (7) transform을 줄 바꾸어 연속으로 입력했을 경우, 마지막에 입력한 값만 적용된다.
+
+2. Transition
+    (1) property : 효과를 적용하고자 하는 css 속성 ex)transition-property:width;
+    (2) duration : 효과가 나타나는데 걸리는 시간 ex)transition-duration:2s;
+    (3) timing-function : 효과의 속도, linear은 '일정하게'라는 의미 ex)transition-timing-function:linear;
+    (4) delay : 특정 조건 하에서 효과 발동 ex)transition-delay:1s;
+    (5) 가상 선택자:hover(태그, 아이디, 클래스 처럼 선택자) -> css에서 미리 만들어 놓은 클래스, '마우스를 올렸을 때'라는 조건
+        ex).transition:hover{width:300px;} : 마우스를 올렸을 때 가로를 300px로 변경한다.
+    (6) 종합 사용예시
+        <style>
+            .transition {
+                transition: width 2s linear 1s; 
+                /* 먼저 나오는 숫자가 duration, 숫자가 하나인 경우엔 무조건 duration,
+                순서대로 property, duration, timing-function, delay */
+            }
+            .transition: hover {width:300px}
+        </style
+        -> 마우스를 올리면 1초 후에 width 값이 300px로, 2초동안, 속도 일정하게 변하는 애니메이션 효과
+
+3. Animation
+    (1) animation-name : changeWidth; / 애니메이션 이름 정의, 임의로 작성
+    (2) animation-duration : 3s; / 애니메이션 총 동작 시간
+    (3) animation-timing-function : linear; / 속도의 성격
+    (4) animation-delay : 1s; / 웹사이트에 접속했을 때 몇초 후에 동작할 것인지
+    (5) animation-iteration-count : 6; / 반복 횟수
+    (6) animation-direction : alternate; / 진행 방향
+        1) alternate : from -> to -> from
+        2) normal : from -> to, from -> to : 시작에서 끝으로
+        3) reverse : to -> from, to -> from : 끝에서 시작으로
+    (7)반드시 따라오는 명령어
+        @keyframes changeWidth {
+            from {width:300px;} 
+            to {width:600px;}
+        }
+
+4. transform & animation 결합 시 주의사항
+    (1) 
+    .box {
+        animation : ratation 1500ms linear infinite alternate;
+        /* name, duration, timing-function, iteration-count, direction 애니메이션 속성, 항상 먼저 나오는 숫자가 duration이다.
+    }
+
+    @keyframes rotation {
+        from { transform : rotate(-10deg); }
+        to { transform : rotate(10deg); }
+    }
+
+    (2) prefix 작성 시 유의 사항
+    .box {
+         animation : ratation 1500ms linear infinite alternate;
+        /* name, duration, timing-function, iteration-count, direction 애니메이션 속성, 항상 먼저 나오는 숫자가 duration이다.
+    }
+
+    @-webkit-keyframes rotation {
+        from { -webkit-transform : rotate(-10deg); }
+        to { -webkit-transform : rotate(10deg); }
+    }
+
+5. 메뉴 영역 애니메이션
+    (1)hover : 메뉴 영역에 마우스을 올렸을 때, 변경사항이 적용되도록
+        1) css 설계
+        #intro nav ul li a {
+            transition : color 1s; 
+            /* 예시이기 때문에 아래에 추가적으로 작성합니다. 실제론 다른 a가 아닌 다른 영역에 적용 */
+            transition : background-color 1s;
+            transition : all 1s;
+        }
+        #intro nav ul li a:hover {
+            color:#917f7f;
+            /* 예시이기 때문에 아래에 추가적으로 작성합니다. 실제론 다른 a가 아닌 다른 영역에 적용 */
+            background-color : #8683bd;
+            transform : scale(1.1);
+        }
