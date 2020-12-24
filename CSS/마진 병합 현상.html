@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>마진병합현상</title>
+  
+  <style>
+  /*
+    #box1 {
+      width: 100%;
+      height: 200px;
+      background-color: yellow;
+      margin-bottom : 150px;
+    }  
+    
+    #box2 {
+      width: 100%;
+      height: 200px;
+      background-color: pink;
+      margin-top : 100px;
+    }  
+    형제간의 마진 병합이 발생할 때 : 더 큰 값을 가진 margin값이 적용된다!
+    */
+    
+    main {
+      width: 100%;
+      height: 400px;
+      background-color: yellow;
+    }
+    
+    article {
+      position : absolute ; /*부모에게 영향을 끼치지 않고 자신만 마진이 적용되게 하는 코드 */
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin-top : 100px;
+    }
+    /*
+    부모의 margin 생성 -> 자식에게도 영향
+    자식의 margin 생성 -> 부모에게도 영향 (position:absolute; 로 부모에게 영향을 끼치지 않고 margin 적용 가능) 
+    */
+    
+    
+  </style>
+  
+</head>
+<body>
+  
+  
+  <!-- 형제 지간에 발생하는 마진 병합 현상 -->
+  <div id="box1"></div>
+  <div id="box2"></div>
+  
+  
+  <!-- 부모 자식 지간에 발생하는 마진 병합 현상 -->
+  <main role="main">  
+    <article></article>
+  </main>
+  
+
+</body>
+</html>
+
