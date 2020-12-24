@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>레이아웃에 영향을 미치는 속성 : display</title>
+  
+  <style>
+    p {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+      display:inline; /* p(블록)태그를 inline 속성으로 변경한다 */
+    }
+    
+    a {
+      width: 300px;
+      height: 300px;
+      background-color: yellow;
+      display:inline-block; /* a(인라인)태그를 block 속성으로 변경한다 */
+      /* display의 속성 값으로 inline-block을 적용하면, 
+      inline 요소도 block 요소처럼 width와 height을 설정할 수 있습니다. 
+      뿐만 아니라 동시에 inline요소의 특성도 갖게 됩니다.
+      inline-block은 내비게이션 버튼을 만들 때 주로 사용됩니다. */
+    }
+  </style>
+  
+</head>
+<body>
+
+   <p>Block Element</p>
+   <p>Block Element</p>
+   <p>Block Element</p>
+   
+   <a href="#">Inline Element</a>
+   <a href="#">Inline Element</a>
+   <a href="#">Inline Element</a>
+
+</body>
+</html>
