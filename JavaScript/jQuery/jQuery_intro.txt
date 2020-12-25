@@ -21,7 +21,7 @@
             });
 ------------------------------------------------------------------------------------------------------------------------------------
 
-2. 제이쿼리 선택자
+2. jQuery Selector
     (1) jquery 선택자는 CSS 선택자와 유사한 구조
         1) Tag
             CSS : h1
@@ -34,12 +34,44 @@
             jquery : $("article)
 
     (2) 디자인은 .css(‘CSS 속성’, ‘CSS 속성값’) 형태로 입력합니다.
-        $("h1").css("color", "blue");
+        $(function() { // jquery 시작구문
+            $("h1").css("background-color", "green");
+            $("#background-blue").css("background-color", "blue");
+            $(".background-red").css("background-color", "red");
+        })
 
     
 ------------------------------------------------------------------------------------------------------------------------------------
 
-3. 제이쿼리 이벤트
+3. jQuery Event
+    (1) Mouse Event (https://api.jquery.com/category/events/mouse-events/)
+        1) variety Mouse Event example
+            $(function() {
+                $("h1").click(function() {
+                    $("h1").css("color", "red");
+                }); // 객체.메서드 형태, 대상에 마우스를 클릭했을 때
+                $("h1").mouseenter(function() {
+                    $("h1").css("background-color", "yellow");
+                });  // 대상에 마우스 올렸을 때
+                $("h1").mouseleave(function() {
+                    $("h1").css("background-color", "white");
+                });  // 대상에 마우스 떼었을 때
+            });
+
+        (2) hide, show, toggle Event (Button Event)
+            1) hide() 이벤트를 적용하면 영역 자체가 사라지므로, 레이아웃이 틀어지는 점에 유의할 것
+            2) hide()는 해당 영역을 사라지게 한다, show()는 해당 영역을 보이게 한다, toggle()은 두 동작을 번갈아한다.
+                $(function() {
+                    $("#hide").click(function() {
+                        $("h1").hide();
+                    });
+                    $("#show").click(function() {
+                        $("h1").show();
+                    });
+                    $("#toggle").click(function() {
+                        $("h1").toggle(); // hide+show
+                    });
+                });
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
