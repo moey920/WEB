@@ -165,4 +165,29 @@
         console.log(isPrime(7)); // 2, 3, 4, 5, 6
 
     (3) 문자열 거꾸로 출력하기
-        
+        1) 문자열의 인덱스는 0부터 시작하므로, 코드를 작성할 때 이에 유의한다.
+            function reverse(str){
+                var reverStr = "";
+                for(var i = str.length-1; i >= 0; i--) { 
+                    /*i = str.length-1 인 이유는 데이터의 총 길이에서 1을 빼야, 해당 데이터의 인덱스(좌표값)가 되기 때문이다.
+                    또한, 마지막 문자부터 거꾸로 출력해야 하므로, 
+                    str.length-1번째부터 하나씩 감소해서, 0번째 문자까지 출력하는 것이다.*/
+                    reverStr = reverStr + str.charAt(i); 
+                    // 문자열끼리의 산술 연산. 저장된 문자열에 새로 들어오는 문자를 추가한다.
+                }
+                return reverStr;
+            }
+
+            console.log(reverse("Nice to meet you"));
+            console.log("Nice to meet you".length);
+
+    (4) 인자를 받아 구구단 출력하기
+        1) 2단부터 9단까지 출력하는 반복문을 완성시켜 보세요.
+            for(var n = 1; n < 10; n++) {
+                for(var i = 1; i < 10; i++) {
+                    var result = n*i;
+                    console.log(n+'*'+i+'='+result);
+                }
+            }
+            /* 변수는 따옴표를 작성하면 안되는 반면, 기호인 * 와 = 는 문자열 데이터 타입이므로 따옴표를 꼭 작성해주어야 합니다.
+                여러 데이터를 이어서 출력하고 싶으시면 산술 연산자 +를 사용하시면 됩니다. */
