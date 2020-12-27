@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  
+  <style>  
+  
+      .static_parent {
+          width: 300px;
+/*           height: 300px; */
+          background-color: yellow;
+      }
+      
+      .static_child {
+          position : static;
+          /* 명시적으로 position을 작성하지 않으면 static이 Default이다! */
+          width: 100px;
+          height: 100px; 
+          /* 자식의 높이 값이 부모의 높이 값에 영향을 미친다. */
+          background-color: blue;
+          
+          margin-top : 100px; 
+          /* 파란색 박스에 margin을 주었지만 부모상단에도 margin이 생긴다 */
+          bottom : 100px;
+          /* 2차원에서는 top, bottom, left, right을 사용해도 변화가 없다.. */
+      }
+
+
+/*         총 4개의 박스 */
+      .box1 {
+          width: 300px;
+          height: 200px;
+          background-color: green;
+      }
+      
+      .fixed_parent {
+          width: 300px;
+          /* height: 300px;  */
+          /* 부모가 높이 값을 가지지 않았을 때, 자식의 높이 값이
+          부모에게 영향을 미치지 않는다.
+          원래 300x300 노란 박스 부모가 존재했는데, 높이 값을 주석처리하니
+          부모박스가 사라진다. 자식은 100px의 높이 값을 가지고 있지만,
+          부모의 높이 값에 영향을 끼치지 않았다.*/
+          background-color: yellow;
+      }
+      
+      .fixed_child {
+          position : fixed; 
+          /* 100x100 크기의 박스가 화면에 고정된다(홈페이지의 배너 등에 활용한다.) */
+          
+          width: 100px;
+          height: 100px;
+          background-color: blue;
+          
+          margin-top : 100px;
+          3차원은 margin 병합 현상이 일어나지 않는다.
+          top : 100px;
+          /* 원래 위치는 부모의 안쪽에 위치하는데, top:100px인하여
+          브라우저 왼쪽 최상단을 기준으로 밑으로 100px만큼 내려간다. */
+      }
+      
+      .box2 {
+          width: 300px;
+          height: 2000px;
+          background-color: pink;
+      }  
+
+
+
+      
+      .box1 {
+          width: 300px;
+          height: 200px;
+          background-color: green;
+      }
+
+      .relative_parent {
+          width: 300px;
+          /* height: 300px; */
+          /* 자식의 높이값이 부모의 높이값에 영향을 준다. */
+          background-color: yellow;
+      }
+
+      .relative_child {
+          position:relative;
+          
+          width: 100px;
+          height: 100px;
+          background-color: blue;
+          
+          margin-top : 100px;
+          /* 자식 박스만 밑으로 내려가는 것이 아닌, 부모도 함께 내려감.
+          마진 병합 현상 발생(2+3차원) */
+          top : 100px;
+          /* fixed는 브라우저를 기준으로 배치가 진행됐다면(왼쪽 최상단 기준)
+          relative는 원래 파란색 박스가 있던 최초 위치를 기준으로 움직인다. */
+      }
+      
+
+
+
+      
+       .box1 {
+          width: 300px;
+          height: 200px;
+          background-color: green;
+      }
+      
+      .absolute_parent {
+          position : relative;
+          width: 300px;
+          /* height: 300px; */
+          /* 자식의 높이 값이 부모의 높이 값에 영향 X -> 높이가 0이니 없어진다. */
+          background-color: yellow;
+      }
+      
+      .absolute_child {
+          position:absolute;
+          
+          width: 100px;
+          height: 100px;
+          background-color: blue;
+          
+          margin-top:100px;
+          /* 마진 병합 현상은 일어나지 않음 */
+          top:100px;
+          /* fixed와 동일하게 홈페이지 브라우저가 기준점이 된다.
+          단, 부모의 position에 따라 결과가 달라진다. Default값이 static,
+          relative로 변경하면? 부모기준으로 변경된다. */
+      } 
+      
+    </style>
+  
+</head>
+<body>
+
+
+  <div class="static_parent">
+      <div class="static_child"></div>
+  </div>
+
+
+  
+  <div class="box1"></div>
+  <div class="fixed_parent">
+      <div class="fixed_child"></div>
+  </div>
+  <div class="box2"></div>
+  
+
+
+  
+  <div class="box1"></div>
+  <div class="relative_parent">
+      <div class="relative_child"></div>
+  </div>
+ 
+
+
+  
+  <div class="box1"></div>
+  <div class="absolute_parent">
+      <div class="absolute_child"></div>
+  </div>
+ 
+  
+
+</body>
+</html>
