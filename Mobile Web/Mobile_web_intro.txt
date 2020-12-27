@@ -150,7 +150,7 @@
                 left:0;
                 z-index : 9999; 
             }
-            #header .left {
+             #header .left {
                 position:absolute;
                 width : 25px;
                 height : 25px;
@@ -167,9 +167,26 @@
             #header .logo img {
                 height : 25px;
             }
-    (3) 왼쪽 네이게이션 제작
-
+            
+    (3) 왼쪽 네비게이션 제작
+        1) 코드
+         
     (4) box-shadow, border-radius 속성
+        1) box-shadow : 공간에 그림자 효과 CSS 속성
+            1-1) .box_shadow {
+                    width : 300px;
+                    height : 300px;
+                    box-shadow : 10px 10px 10px 10px red; /* x축, y축, 그림자 선명도(클수록 흐려지게), 확산거리, 그림자 색상
+                }
+                링크 참고 https://www.cssmatic.com/box-shadow
+            
+        2) border-radius : 테두리의 각도 조절
+            2-1) .box_shadow {
+                    width: 300px;
+                    height: 300px;
+                    border: solid 10px red;
+                    border-radius: 30px;
+                }
 
     (5) 본문 영역 만들기 
 
