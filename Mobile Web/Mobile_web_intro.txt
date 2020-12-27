@@ -132,9 +132,41 @@
 2. 메인 페이지 제작하기
 
     (1) 메인 페이지 살펴보기
+        1) 상단영역(스크롤시 고정 - position:fixed)
+        2) 메인페이지 설명 이미지
+        3) 메인 정보(리스트)
+        4) 상단 메뉴 버튼(클릭시 네비게이션 표출)
 
     (2) 상단 영역 만들기
-
+        1) 헤더에 대한 CSS 작성(메뉴 이미지 삽입 및 레이어 설정, 로고 위치 설정)
+        2) 코드
+            #header {
+                position: fixed;
+                width : 100%;
+                height : 50px;
+                background-color: white;
+                border-bottom : 1px solid #d4d4d4;
+                top:0;
+                left:0;
+                z-index : 9999; 
+            }
+            #header .left {
+                position:absolute;
+                width : 25px;
+                height : 25px;
+                background : url("../img/main/nav.png");
+                background-size : 100%;
+                top : 12px;
+                left : 16px;
+                cursor : pointer;
+            }
+            #header .logo {
+                padding-top : 12px;
+                text-align : center;
+            }
+            #header .logo img {
+                height : 25px;
+            }
     (3) 왼쪽 네이게이션 제작
 
     (4) box-shadow, border-radius 속성
