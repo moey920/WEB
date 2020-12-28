@@ -195,6 +195,93 @@
 
 3. 상세 페이지 제작하기
 
+    (1) 상세 페이지 구성요소
+        1) 상단 영역(네비게이션) - 메인 페이지의 선수 버튼을 클릭했을 때 나오는 메뉴이므로, 뒤로가기 버튼 생성
+
+        2) 상단 아래 이미지 슬라이드 효과
+
+        3) 메뉴를 클릭해서 넘어간 정보 레이아웃(내용물)
+
+        4) 하단 패럴랙스 효과
+
+    (2) 웹폰트 적용하기
+        1) 웹 상에 존재하는 폰트를 다운받아 적용하는 것
+            구글 웹 폰트 : https://fonts.google.com/
+        
+        2) import 
+            /* CSS 파일에 적용 */
+            @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css); //파일이 있는 링크주소 작성
+            @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
+            … {
+                text-decoration: none;
+                font-family: 'Spoqa Han Sans';
+            }
+
+    (3) 상세 페이지 상단 영역 만들기
+        1) 왼쪽 상단 Back 버튼
+            <header id="header">
+                <a href="main.html">
+                    <div class="back"></div>
+                </a>
+                <h1 class="logo">
+                    <a href="main.html">
+                        <img src="img/main/logo.png" alt="">
+                    </a>
+                </h1>
+            </header>
+            /*CSS파일*/
+            #header .back {
+                position : absolute;
+                width : 25px;
+                height : 25px;
+                background : url(../img/main_details/back_arrow.png);
+                background-size : 100%;
+                top:12px;
+                left:16px;
+                cursor : pointer;
+            }
+
+    (4) 이미지 슬라이드 만들어보기
+        1) Owl Carousel2 외부 라이브러리 사용
+            1-1) PC/모바일 환경 이미지 슬라이드 지원   
+                https://owlcarousel2.github.io/OwlCarousel2/
+            
+            1-2) 사용 코드
+                <head>
+                    <link rel="stylesheet" href="css/owl.carousel.css">
+                    <link rel="stylesheet" href="css/owl.theme.default.css”>
+                </head>
+                <body>
+                    <script src=“js/owl.carousel.js"></script>
+                </body>
+
+                <div id="main_slider">
+                    <div class="owl-carousel">
+                        <div class="item">
+                            <img src="img/main_details/slider1.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="img/main_details/slider2.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="img/main_details/slider3.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                /* script 안에 작성 */
+                $('.owl-carousel').owlCarousel({
+                    items: , /*이미지 개수*/
+                    loop: , /*반복 여부(참, 거짓)*/
+                    autoplay: , /*자동 재생*/
+                    dots: , /*이미지 아래 순서 동그라미 여부*/
+                    autoplayTimeout: , /*각 이미지에 머무는 시간*/
+                    autoplayHoverPause: /*마우스를 올렸을 때 슬라이드 일시정지(모바일에선 작동안함)*/
+                })
+                
+    (5) 상세 페이지 본문 영역 만들기
+
+    (6) CSS 효과만으로 패럴랙스 효과 구현하기
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
