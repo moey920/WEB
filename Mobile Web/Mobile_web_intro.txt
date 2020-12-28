@@ -196,14 +196,120 @@
 3. 상세 페이지 제작하기
 
     (1) Q&A 페이지 살펴보기
+        1) 상단 영역(메인 페이지와 동일)
+
+        2) Q&A 이미지 (메인 페이지와 이미지만 상이)
+
+        3) 본문 HTML 영역(제목 이메일 내용 문의하기 버튼 등)
 
     (2) <form> 태그 알아보기
+        1) 사용자가 특정 정보를 기입하고, 이를 서버에 전달할 수 있도록 하는 '전체' 영역
 
-    (3) <input>, <textarea> 알아보기
+        2) action, method 등의 속성을 기입해야 서버와 연동할 수 있다.
 
-    (4) 문의하기 양식 만들기
+    (3) <input> 알아보기
+        1) input은 <label> 태그와 함께 사용된다. label의 for속성과, input의 id/name 속성은 모두 같아야만 한다.
+            <label for="topic">제목</label>
+            <input type="text" id="topic" name="topic"></input>
 
-    (5) validation 기능 만들기
+        2) input type에는 text(글자), email(이메일), tel(전화번호), password(비밀번호)
+            checkbox(다중선택), radio(단일선택) 가 있다.
+
+        3) label 태그로 input을 감싸도 된다.
+            <label>
+                <input>
+            </label>
+
+        4) checkbox는 input의 name 속성이 달라야한다.(여러개 선택하기 때문에)
+            radio는 input의 name 속성이 같아야한다.(동일해야지만 중복체크를 막을 수 있다.)
+                <label for="male">
+                    <input type="radio" id="male" name="gender">남자
+                </label>
+                <label for="female">
+                    <input type="radio" id="female" name="gender">여자
+                </label>
+
+    (4) <textarea> 알아보기
+        1) 장문의 글자를 입력할 때 사용하는 태그
+
+        2) input과 동일하게 label과 함께 사용하며, label for 속성과 textarea id, name 속성을 동일한 값을 주어야 한다.
+
+        3) input과는 다르게 닫는 태크가 필요하다.
+
+    (5) 회원가입 양식 만들어보기
+        1) 차후 구현예정(네이버 회원가입 form 만들기)
+
+    (6) 문의하기 양식 만들기
+        1) CSS 구현
+            /* Q&A 페이지 */
+
+            #question_form .form-group {
+                padding-bottom : 32px;
+            }
+            #question_form label {
+                display : block;
+                font-size : 15px;
+                font-weight : bold;
+                margin-bottom : 8px;
+            }
+            #question_form input,
+            #question_form textarea {
+                display : block;
+                width : 100%;
+                height : 40px;
+                background-color : #fff;
+                border : 1px solid #ccc;
+                padding : 8px 12px;
+                color : #555;
+                font-size : 14px;
+            }
+            #question_form textarea {
+                height : 100px;
+            }
+            #question_form button {
+                width :100%;
+                background-color : #564997;
+                border : 1px solid #ccc;
+                padding: 16px 0;
+                font-weight : bold;
+                color : #ffffff;
+                font-size : 16px;
+            }
+
+        2) HTML 구현 (body-main-section-form)
+            /* Q&A 페이지 */
+                <section id="question">
+
+                    <form id="question_form">
+
+                    <!-- 문의하기 양식 입력하기 -->
+                        <div class="form-group">
+                            <label for="topic">제목
+                                <input type="text" id="topic" name="topic" required minlength="5">
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">이메일 주소
+                                <input type="email" id="email" name="email" required>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">내용
+                                <input type="textarea" id="message" name="message" required>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit">문의하기</button>
+                        </div>
+                        
+                    </form>
+
+                </section>
+                
+    (7) validation 기능 만들기
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
